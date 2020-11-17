@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculo Numérico</title>
+
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+      integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="index.css" />
+    <link rel="stylesheet" href="assets-newton/css/main.css" />
+    <link rel="stylesheet" href="assets-newton/math/mathquill.css" />
+    <link rel="stylesheet" href="assets-newton/math/matheditor.css" />
+  </head>
+  <body>
+    <div class="center-div" id="div-botoes">
+      <div class="botoes-interpolacao">
+        <h3>Zero de Funções</h3>
+        <br />
+        <button class="btn btn-primary" onclick="selecionaFuncao(5)">Newton</button>
+        <button class="btn btn-primary" onclick="location.href='bissection.html'">Bissecção</button>
+      </div>
+    </div>
+
+    <div class="center-div">
+      <div class="newton" hidden>
+        <div id="content">
+          <div class="inner">   
+            <div align="center">
+              <header style="font-size: 150%;">Método de Newton</header>
+              <div id="errormsg"></div>
+              <table class="input" align="center">
+                <thead>
+                  <tr>
+                    <div id="mathfield" style="width:50%;">x^2 - 5*x + 6</div>
+                    <div id="hidden" style="display:none;">x^2 - 5*x + 6</div>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>X₀: <input type="number" id="x0" value="1"></td>
+                    <td>Número Max. Iterações: <input type="number" id="maxiter" value="10"></td>
+                  </tr>
+                  <tr>
+                    <td>Erro: <input type="number" id="eps" value="1"></td>
+                    <td></td>
+                  </tr>
+                </tbody>
+                <tfoot>
+                  <tr>
+                    <td>Raiz = <label id="root"></label></td>
+                    <td></td>
+                  </tr>
+                </tfoot>
+              </table>
+              <button id="demo" onclick="x(mE.getValue()); clrtab(); newton(x0.value, eps.value);">Calcular</button>
+            </div>
+      
+            <br><br>
+            <div align="center"> Derivada = <span id="derv" style="font-weight:bold;"></span> </div>
+      
+            <table class="output" align="center" id="disp">
+              <thead>
+                <tr>
+                  <th>i</th>
+                  <th>Xi</th>
+                  <th>f(Xi)</th>
+                  <th>f'(Xi)</th>
+                  <th>Xi+1</th>
+                  <th>Erro</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+              </tbody>
+            </table>
+        </div>
+      
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script src="math.js"></script>
+<script src="katex.min.js"></script>
+<script src="index.js"></script>
+<script src="assets-newton/js/jquery.min.js"></script>
+<script src="assets-newton/js/browser.min.js"></script>
+<script src="assets-newton/js/breakpoints.min.js"></script>
+<script src="assets-newton/js/util.js"></script>
+<script src="assets-newton/js/main.js"></script>
+<script src="assets-newton/js/math.js"></script>
+<script src="assets-newton/math/latex-to-js.js"></script>
+<script src="assets-newton/math/mathquill.js"></script>
+<script src="assets-newton/math/matheditor.js"></script>
+<script> 
+  var mE = new MathEditor('mathfield');
+
+  function x(x) {
+    var span = document.getElementById('hidden');
+    z = latex_to_js(x);
+    span.innerHTML = z;
+    return x;
+  }	
+</script>

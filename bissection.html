@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculo Numérico</title>
+
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+      integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="index.css" />
+    <link rel="stylesheet" href="assets-newton/css/main.css" />
+    <link rel="stylesheet" href="assets-newton/math/mathquill.css" />
+    <link rel="stylesheet" href="assets-newton/math/matheditor.css" />
+  </head>
+  <body>
+    <div class="center-div"><!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculo Numérico</title>
+
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+      integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="index.css" />
+    <link rel="stylesheet" href="assets-newton/css/main.css" />
+    <link rel="stylesheet" href="assets-newton/math/mathquill.css" />
+    <link rel="stylesheet" href="assets-newton/math/matheditor.css" />
+  </head>
+  <body>
+    <div class="center-div">
+        <div id="content">
+            <div class="inner">
+                <div align="center">
+                    <header style="font-size: 150%;">Bissecção</header>
+                    <div id="errormsg"></div>
+                    <table class="input" align="center">
+                        <thead>
+                            <tr>
+                                <div id="mathfield" style="width:50%;">x^3+x-1</div>
+                                <div id="hidden" style="display:none;">x^3+x-1</div>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Xl: <input type="number" id="xl" value="0"></td>
+                                <td>Erro: <input type="number" id="eps" value="0.5"></td>
+                            </tr>
+                            <tr>
+                                <td>Xu: <input type="number" id="xu" value="1"></td>
+                                <td>Num. Máx Iterações: <input type="number" id="maxiter" value="10"></td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td>Raiz = <label id="root"></label></td>
+                                <td></td>
+                            </tr>
+                        </tfoot>
+                    </table>
+    
+                    <button id="demo"
+                        onclick="x(mE.getValue()); clrtab(); bisection(xl.value, xu.value, eps.value);">Calcular</button>
+                    <br>
+    
+                    <table class="output" id="disp">
+                        <thead>
+                            <tr>
+                                <th>I</th>
+                                <th>Xl</th>
+                                <th>f(Xl)</th>
+                                <th>Xu</th>
+                                <th>f(Xu)</th>
+                                <th>Xr</th>
+                                <th>f(Xr)</th>
+                                <th>Erro</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+    
+        </div>
+    </div>
+  </body>
+</html>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script src="math.js"></script>
+<script src="katex.min.js"></script>
+<script src="index.js"></script>
+<script src="assets-newton/js/jquery.min.js"></script>
+<script src="assets-newton/js/browser.min.js"></script>
+<script src="assets-newton/js/breakpoints.min.js"></script>
+<script src="assets-newton/js/util.js"></script>
+<script src="assets-newton/js/main.js"></script>
+<script src="assets-newton/js/math.js"></script>
+<script src="assets-newton/math/latex-to-js.js"></script>
+<script src="assets-newton/math/mathquill.js"></script>
+<script src="assets-newton/math/matheditor.js"></script>
+<script> 
+  var mE = new MathEditor('mathfield');
+
+  function x(x) {
+    var span = document.getElementById('hidden');
+    z = latex_to_js(x);
+    span.innerHTML = z;
+    return x;
+  }	
+</script>
+    
